@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TERA OMS Case Study — Ruth Mutile Kimeu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --ink: #0f0f0f;
+      --paper: #f7f4ef;
+      --gold: #b8860b;
+      --gold-light: #d4a017;
+      --teal: #1a5f5f;
+      --teal-light: #2a8a8a;
+      --muted: #6b6560;
+      --card-bg: #ffffff;
+      --border: #e0dbd3;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 4rem;
+      background: rgba(247,244,239,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--teal);
+      text-decoration: none;
+    }
+
+    .nav-back {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--teal); }
+
+    /* HERO */
+    .case-hero {
+      padding-top: 80px;
+      background: var(--teal);
+      color: white;
+      padding-bottom: 0;
+    }
+
+    .case-hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 5rem 4rem 4rem;
+    }
+
+    .breadcrumb {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .breadcrumb a { color: rgba(255,255,255,0.55); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--gold-light); }
+
+    .case-type {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 1rem;
+    }
+
+    .case-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      color: white;
+    }
+
+    .case-subtitle {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.7);
+      font-weight: 300;
+      max-width: 620px;
+      line-height: 1.8;
+      margin-bottom: 3rem;
+    }
+
+    .case-meta {
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .meta-item { }
+    .meta-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 0.3rem;
+    }
+    .meta-value {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.85);
+      font-weight: 400;
+    }
+
+    /* CONTENT */
+    .case-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 5rem 4rem;
+    }
+
+    .case-section { margin-bottom: 4.5rem; }
+
+    .case-section-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .case-section-label::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .case-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      color: var(--ink);
+      margin-bottom: 1.2rem;
+      line-height: 1.3;
+    }
+
+    .case-section p {
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.9;
+      margin-bottom: 1rem;
+    }
+
+    /* CHALLENGE CARDS */
+    .challenge-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+
+    .challenge-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      padding: 1.5rem;
+      border-radius: 2px;
+    }
+
+    .challenge-card h4 {
+      font-weight: 500;
+      font-size: 0.92rem;
+      margin-bottom: 0.4rem;
+      color: var(--ink);
+    }
+
+    .challenge-card p {
+      font-size: 0.85rem;
+      margin-bottom: 0;
+    }
+
+    /* ARCHITECTURE */
+    .arch-layers {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .arch-layer {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      align-items: stretch;
+      border: 1px solid var(--border);
+      border-bottom: none;
+      background: var(--card-bg);
+    }
+    .arch-layer:last-child { border-bottom: 1px solid var(--border); border-radius: 0 0 4px 4px; }
+    .arch-layer:first-child { border-radius: 4px 4px 0 0; }
+
+    .arch-layer-num {
+      background: var(--teal);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem 1rem;
+      text-align: center;
+    }
+
+    .arch-layer-num .layer-n {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+
+    .arch-layer-num .layer-label {
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 0.3rem;
+    }
+
+    .arch-layer-content {
+      padding: 1.5rem 2rem;
+      border-left: 1px solid var(--border);
+    }
+
+    .arch-layer-content h4 {
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+
+    .arch-layer-content p {
+      font-size: 0.85rem;
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    /* MODULES TABLE */
+    .modules-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+      background: var(--card-bg);
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .modules-table th {
+      background: var(--teal);
+      color: white;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 1rem 1.2rem;
+      text-align: left;
+    }
+
+    .modules-table td {
+      padding: 1rem 1.2rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      font-weight: 300;
+      vertical-align: top;
+    }
+
+    .modules-table tr:last-child td { border-bottom: none; }
+    .modules-table tr:nth-child(even) td { background: var(--paper); }
+
+    .modules-table td:first-child {
+      font-weight: 500;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+
+    /* RESULTS */
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+
+    .result-card {
+      background: var(--teal);
+      color: white;
+      padding: 2rem 1.5rem;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .result-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: var(--gold-light);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .result-desc {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.7);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    /* TECH STACK */
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.2rem;
+    }
+
+    .tech-tag {
+      padding: 0.5rem 1.1rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--teal);
+    }
+
+    /* LEARNINGS */
+    .learnings-list {
+      margin-top: 1.2rem;
+      list-style: none;
+    }
+
+    .learnings-list li {
+      padding: 1rem 1.2rem 1rem 2.5rem;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.92rem;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    .learnings-list li:last-child { border-bottom: none; }
+
+    .learnings-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0.8rem;
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    /* CTA */
+    .case-cta {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 3rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .case-cta h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .case-cta p {
+      color: var(--muted);
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      background: var(--teal);
+      color: white;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.2s;
+      margin: 0 0.5rem;
+    }
+    .btn-primary:hover { background: var(--teal-light); transform: translateY(-2px); }
+
+    .btn-outline {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      border: 1px solid var(--ink);
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      border-radius: 2px;
+      transition: all 0.2s;
+      margin: 0 0.5rem;
+    }
+    .btn-outline:hover { background: var(--ink); color: var(--paper); }
+
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+    }
+    footer a { color: var(--gold-light); text-decoration: none; }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .case-hero-inner { padding: 4rem 1.5rem 3rem; }
+      .case-content { padding: 3rem 1.5rem; }
+      .challenge-grid { grid-template-columns: 1fr; }
+      .results-grid { grid-template-columns: 1fr; }
+      .arch-layer { grid-template-columns: 100px 1fr; }
+      .case-meta { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-brand">Ruth Mutile Kimeu</a>
+    <a href="index.html" class="nav-back">← Back to Portfolio</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="case-hero">
+    <div class="case-hero-inner">
+      <div class="breadcrumb"><a href="index.html">Portfolio</a> / Case Study</div>
+      <div class="case-type">Systems Design · Education · Operations Management</div>
+      <h1 class="case-title">TERA School Operations Management System</h1>
+      <p class="case-subtitle">
+        A fully linked, 12-file Google Sheets system with a four-layer architecture — automating attendance tracking, fee collection, academic performance monitoring, staff management, and inventory control for The Edward Royal Academy in Vihiga County, Kenya.
+      </p>
+      <div class="case-meta">
+        <div class="meta-item">
+          <div class="meta-label">Client</div>
+          <div class="meta-value">The Edward Royal Academy (TERA)</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Location</div>
+          <div class="meta-value">Sabatia, Vihiga County, Kenya</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Deliverable</div>
+          <div class="meta-value">12-File Google Sheets OMS</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Year</div>
+          <div class="meta-value">2025 / 2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="case-content">
+
+    <!-- OVERVIEW -->
+    <div class="case-section">
+      <div class="case-section-label">Overview</div>
+      <h2>The Challenge</h2>
+      <p>
+        The Edward Royal Academy is a growing CBC-aligned primary school serving students from PP1 through Grade 7. Like many Kenyan schools operating at this scale, the school was managing its operations through a combination of physical registers, manual records, and disconnected spreadsheets. There was no unified view of attendance, fees, or performance.
+      </p>
+      <p>
+        The principal needed a system that could give a real-time picture of the school at a glance — without expensive software, without IT support, and without requiring teachers to learn complex new tools.
+      </p>
+
+      <div class="challenge-grid">
+        <div class="challenge-card">
+          <h4>No unified dashboard</h4>
+          <p>Attendance, fees, staff, and inventory lived in separate, unconnected places with no single summary view.</p>
+        </div>
+        <div class="challenge-card">
+          <h4>Manual fee tracking</h4>
+          <p>Fee collection was tracked manually, making it difficult to identify unpaid students or calculate collection rates quickly.</p>
+        </div>
+        <div class="challenge-card">
+          <h4>Academic data scattered</h4>
+          <p>CAT and exam scores were recorded individually per teacher with no aggregated class or school-level performance view.</p>
+        </div>
+        <div class="challenge-card">
+          <h4>No inventory alerts</h4>
+          <p>Stock levels for stationery, equipment, and supplies were not tracked systematically, leading to shortages discovered too late.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ARCHITECTURE -->
+    <div class="case-section">
+      <div class="case-section-label">System Design</div>
+      <h2>Four-Layer Architecture</h2>
+      <p>
+        The system was designed as a four-layer hierarchy where data flows upward automatically using IMPORTRANGE formulas. Teachers and staff only ever update their own designated sheet. The principal sees everything aggregated in real time on the Master Dashboard without touching any underlying data.
+      </p>
+
+      <div class="arch-layers">
+        <div class="arch-layer">
+          <div class="arch-layer-num">
+            <div class="layer-n">L1</div>
+            <div class="layer-label">Input Layer</div>
+          </div>
+          <div class="arch-layer-content">
+            <h4>9 Class Sheets (PP1 through Grade 7)</h4>
+            <p>Each class teacher updates daily attendance (P/A/L/E), student register, and academic scores (CAT1 + CAT2 + Exam) for their class only. Auto-calculates totals and grades.</p>
+          </div>
+        </div>
+        <div class="arch-layer">
+          <div class="arch-layer-num">
+            <div class="layer-n">L2</div>
+            <div class="layer-label">Module Layer</div>
+          </div>
+          <div class="arch-layer-content">
+            <h4>Finance Sheet + Operations Sheet</h4>
+            <p>The Finance Sheet manages fee structure configuration, M-Pesa payment tracking, and arrears flagging. The Operations Sheet manages the staff register, weekly CBC timetable, inventory tracking, and leave records.</p>
+          </div>
+        </div>
+        <div class="arch-layer">
+          <div class="arch-layer-num">
+            <div class="layer-n">L3</div>
+            <div class="layer-label">Feed Layer</div>
+          </div>
+          <div class="arch-layer-content">
+            <h4>Summary Tabs (Feed to Master)</h4>
+            <p>Each module sheet contains a dedicated summary tab that consolidates key KPIs into a clean, structured range ready for IMPORTRANGE pickup by the Master Dashboard.</p>
+          </div>
+        </div>
+        <div class="arch-layer">
+          <div class="arch-layer-num">
+            <div class="layer-n">L4</div>
+            <div class="layer-label">Dashboard</div>
+          </div>
+          <div class="arch-layer-content">
+            <h4>Principal's Master Operations Dashboard</h4>
+            <p>A single live dashboard pulling from all 11 underlying files. Displays attendance by class, fee collection rates, staff status, inventory alerts, academic snapshots, and prioritised action alerts — updated automatically every time any source sheet changes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODULES -->
+    <div class="case-section">
+      <div class="case-section-label">Features</div>
+      <h2>What the System Covers</h2>
+
+      <table class="modules-table">
+        <thead>
+          <tr>
+            <th>Module</th>
+            <th>Key Features</th>
+            <th>Auto-Calculated</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Attendance</td>
+            <td>Daily register per class (P/A/L/E), 48 school days tracked per term, parent notification flag</td>
+            <td>Present count, absent count, attendance rate per class and school-wide</td>
+          </tr>
+          <tr>
+            <td>Fee Collection</td>
+            <td>Fee structure by class, M-Pesa code and receipt tracking, installment recording, arrears flagging</td>
+            <td>Balance, collection rate, paid/partial/unpaid status per student</td>
+          </tr>
+          <tr>
+            <td>Academic Performance</td>
+            <td>8 subjects tracked (CAT1 + CAT2 + Exam = 100), grade boundaries A to E</td>
+            <td>Total marks, average %, overall grade, students below 50% flagged</td>
+          </tr>
+          <tr>
+            <td>Staff Management</td>
+            <td>Full staff register with roles, departments, employment type, TSC number, emergency contacts</td>
+            <td>Teaching vs support staff counts, leave tracking, staff on leave today</td>
+          </tr>
+          <tr>
+            <td>Inventory</td>
+            <td>32 tracked items across stationery, equipment, ICT, sports, furniture, cleaning categories</td>
+            <td>Stock status (OK / Low / Out of Stock), reorder alerts, inventory value in KES</td>
+          </tr>
+          <tr>
+            <td>Timetable</td>
+            <td>Weekly CBC-aligned timetable for all 9 classes, all periods Monday through Friday</td>
+            <td>Period coverage tracking, free periods flagged</td>
+          </tr>
+          <tr>
+            <td>Master Dashboard</td>
+            <td>Live KPI panels, class-by-class breakdown, action alerts with priority levels and target dates</td>
+            <td>Everything — pulls automatically from all 11 source sheets via IMPORTRANGE</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="case-section">
+      <div class="case-section-label">Outcomes</div>
+      <h2>Results Delivered</h2>
+
+      <div class="results-grid">
+        <div class="result-card">
+          <div class="result-number">12</div>
+          <div class="result-desc">Linked Google Sheets files working as a single integrated system</div>
+        </div>
+        <div class="result-card">
+          <div class="result-number">245</div>
+          <div class="result-desc">Students tracked across 9 classes from PP1 to Grade 7</div>
+        </div>
+        <div class="result-card">
+          <div class="result-number">0</div>
+          <div class="result-desc">New software required — built entirely on tools the school already had</div>
+        </div>
+        <div class="result-card">
+          <div class="result-number">KES 3.3M+</div>
+          <div class="result-desc">Term fee collections tracked and monitored with auto-calculated arrears</div>
+        </div>
+        <div class="result-card">
+          <div class="result-number">32</div>
+          <div class="result-desc">Inventory items tracked with automatic low-stock and out-of-stock alerts</div>
+        </div>
+        <div class="result-card">
+          <div class="result-number">1</div>
+          <div class="result-desc">Dashboard giving the principal a complete school picture in real time</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TECH STACK -->
+    <div class="case-section">
+      <div class="case-section-label">Tools Used</div>
+      <h2>Technology Stack</h2>
+      <p>The entire system was built using tools already available to the school at zero additional cost. The design principle was maximum impact with minimum complexity.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Google Sheets</span>
+        <span class="tech-tag">IMPORTRANGE</span>
+        <span class="tech-tag">VLOOKUP</span>
+        <span class="tech-tag">COUNTIF / SUMIF</span>
+        <span class="tech-tag">Data Validation</span>
+        <span class="tech-tag">Conditional Formatting</span>
+        <span class="tech-tag">Named Ranges</span>
+        <span class="tech-tag">Dashboard Design</span>
+        <span class="tech-tag">CBC Curriculum Alignment</span>
+        <span class="tech-tag">M-Pesa Payment Integration</span>
+      </div>
+    </div>
+
+    <!-- LEARNINGS -->
+    <div class="case-section">
+      <div class="case-section-label">Reflection</div>
+      <h2>Key Lessons</h2>
+      <ul class="learnings-list">
+        <li>The right tool is the one the user will actually use. Choosing Google Sheets over a custom app meant zero adoption friction and immediate use from day one.</li>
+        <li>Data architecture matters even in spreadsheets. Separating input layers from summary layers from the dashboard layer made the system maintainable and scalable.</li>
+        <li>Automation should reduce work, not add it. Every calculation that happens automatically is one fewer thing a busy teacher has to think about.</li>
+        <li>Designing for the end user means designing for the principal's questions, not the developer's preferences. The dashboard surfaces answers to the questions a school leader asks every morning.</li>
+        <li>A setup guide is part of the deliverable. The "How To Link" sheet inside the Master Dashboard ensures the system can be maintained and extended long after handover.</li>
+      </ul>
+    </div>
+
+    <!-- CTA -->
+    <div class="case-cta">
+      <h3>Interested in a similar system for your school or organisation?</h3>
+      <p>I design and build operational data systems for schools, NGOs, and SMEs across East Africa.</p>
+      <a href="mailto:hello@briefdeskke.co.ke" class="btn-primary">Get In Touch</a>
+      <a href="index.html" class="btn-outline">View More Projects</a>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2026 Ruth Mutile Kimeu &nbsp;|&nbsp; <a href="https://briefdeskke.co.ke" target="_blank">BriefDesk Solutions</a></p>
+  </footer>
+
+</body>
+</html>
