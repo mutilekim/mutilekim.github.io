@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Draw Hunter 3000 — Ruth Mutile Kimeu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --ink: #0f0f0f;
+      --paper: #f7f4ef;
+      --gold: #b8860b;
+      --gold-light: #d4a017;
+      --teal: #1a5f5f;
+      --teal-light: #2a8a8a;
+      --navy: #1a1a2e;
+      --navy-light: #16213e;
+      --muted: #6b6560;
+      --card-bg: #ffffff;
+      --border: #e0dbd3;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 4rem;
+      background: rgba(247,244,239,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--teal);
+      text-decoration: none;
+    }
+
+    .nav-back {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--teal); }
+
+    /* HERO */
+    .case-hero {
+      padding-top: 80px;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .case-hero::before {
+      content: '⚽';
+      position: absolute;
+      right: 8%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 18rem;
+      opacity: 0.04;
+      pointer-events: none;
+    }
+
+    .case-hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 5rem 4rem 4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .breadcrumb {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .breadcrumb a { color: rgba(255,255,255,0.45); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--gold-light); }
+
+    .case-type {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 1rem;
+    }
+
+    .case-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      color: white;
+    }
+
+    .case-subtitle {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.65);
+      font-weight: 300;
+      max-width: 640px;
+      line-height: 1.8;
+      margin-bottom: 3rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .hero-badge {
+      padding: 0.4rem 1rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 2px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.05em;
+    }
+
+    .case-meta {
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .meta-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 0.3rem;
+    }
+    .meta-value {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.85);
+    }
+
+    /* CONTENT */
+    .case-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 5rem 4rem;
+    }
+
+    .case-section { margin-bottom: 4.5rem; }
+
+    .case-section-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .case-section-label::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .case-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      color: var(--ink);
+      margin-bottom: 1.2rem;
+      line-height: 1.3;
+    }
+
+    .case-section p {
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.9;
+      margin-bottom: 1rem;
+    }
+
+    /* RESULTS PANEL */
+    .results-panel {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      border-radius: 4px;
+      padding: 3rem;
+      margin-top: 1.5rem;
+      color: white;
+    }
+
+    .results-panel h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--gold-light);
+      margin-bottom: 2rem;
+      letter-spacing: 0.05em;
+    }
+
+    .results-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .result-metric { text-align: center; }
+
+    .result-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: white;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .result-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+      font-weight: 300;
+      line-height: 1.4;
+    }
+
+    .result-note {
+      font-size: 0.7rem;
+      color: var(--gold-light);
+      margin-top: 0.3rem;
+    }
+
+    /* WORKFLOW */
+    .workflow-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 1.5rem;
+    }
+
+    .workflow-step {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      border: 1px solid var(--border);
+      border-bottom: none;
+      background: var(--card-bg);
+    }
+    .workflow-step:first-child { border-radius: 4px 4px 0 0; }
+    .workflow-step:last-child { border-bottom: 1px solid var(--border); border-radius: 0 0 4px 4px; }
+
+    .step-num {
+      background: var(--navy);
+      color: var(--gold-light);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step-content {
+      padding: 1.4rem 1.8rem;
+      border-left: 1px solid var(--border);
+    }
+
+    .step-content h4 {
+      font-weight: 500;
+      font-size: 0.92rem;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+
+    .step-content p {
+      font-size: 0.84rem;
+      color: var(--muted);
+      font-weight: 300;
+      margin-bottom: 0;
+      line-height: 1.6;
+    }
+
+    /* MODEL COMPARISON */
+    .model-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+      background: var(--card-bg);
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .model-table th {
+      background: var(--navy);
+      color: white;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 1rem 1.2rem;
+      text-align: left;
+    }
+
+    .model-table td {
+      padding: 1rem 1.2rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      font-weight: 300;
+    }
+
+    .model-table tr:last-child td { border-bottom: none; }
+    .model-table tr.winner td { background: rgba(26,95,95,0.06); font-weight: 500; color: var(--ink); }
+    .model-table td:first-child { font-weight: 500; color: var(--ink); }
+
+    .winner-badge {
+      font-size: 0.68rem;
+      padding: 0.2rem 0.5rem;
+      background: var(--teal);
+      color: white;
+      border-radius: 2px;
+      margin-left: 0.5rem;
+      font-weight: 500;
+    }
+
+    /* FEATURES */
+    .features-list {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .feature-row {
+      display: grid;
+      grid-template-columns: 28px 1fr 120px;
+      align-items: center;
+      padding: 1rem 1.2rem;
+      border: 1px solid var(--border);
+      border-bottom: none;
+      background: var(--card-bg);
+      gap: 1rem;
+    }
+    .feature-row:first-child { border-radius: 4px 4px 0 0; }
+    .feature-row:last-child { border-bottom: 1px solid var(--border); border-radius: 0 0 4px 4px; }
+
+    .feature-rank {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--gold);
+      text-align: center;
+    }
+
+    .feature-info h4 {
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--ink);
+      margin-bottom: 0.2rem;
+    }
+
+    .feature-info p {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 300;
+      margin-bottom: 0;
+      line-height: 1.4;
+    }
+
+    .feature-bar-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .feature-bar-bg {
+      flex: 1;
+      height: 6px;
+      background: var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .feature-bar-fill {
+      height: 100%;
+      background: var(--navy);
+      border-radius: 3px;
+    }
+
+    .feature-score {
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    /* TECH TAGS */
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.2rem;
+    }
+
+    .tech-tag {
+      padding: 0.5rem 1.1rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--navy);
+    }
+
+    /* INSIGHT BOX */
+    .insight-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--gold);
+      padding: 2rem;
+      border-radius: 2px;
+      margin-top: 1.5rem;
+    }
+
+    .insight-box h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--ink);
+      margin-bottom: 0.8rem;
+    }
+
+    .insight-box p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-weight: 300;
+      margin-bottom: 0;
+      line-height: 1.8;
+    }
+
+    /* CTA */
+    .case-cta {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 3rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .case-cta h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .case-cta p {
+      color: var(--muted);
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      background: var(--navy);
+      color: white;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.2s;
+      margin: 0.4rem;
+    }
+    .btn-primary:hover { background: var(--teal); transform: translateY(-2px); }
+
+    .btn-outline {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      border: 1px solid var(--ink);
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      border-radius: 2px;
+      transition: all 0.2s;
+      margin: 0.4rem;
+    }
+    .btn-outline:hover { background: var(--ink); color: var(--paper); }
+
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+    }
+    footer a { color: var(--gold-light); text-decoration: none; }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .case-hero-inner { padding: 4rem 1.5rem 3rem; }
+      .case-content { padding: 3rem 1.5rem; }
+      .results-metrics { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+      .workflow-step { grid-template-columns: 48px 1fr; }
+      .feature-row { grid-template-columns: 24px 1fr; }
+      .feature-bar-wrap { display: none; }
+      .case-meta { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-brand">Ruth Mutile Kimeu</a>
+    <a href="index.html" class="nav-back">← Back to Portfolio</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="case-hero">
+    <div class="case-hero-inner">
+      <div class="breadcrumb"><a href="index.html">Portfolio</a> / Case Study</div>
+      <div class="case-type">Machine Learning · Sports Analytics · Python</div>
+      <h1 class="case-title">Draw Hunter 3000 ⚽</h1>
+      <p class="case-subtitle">
+        A Random Forest classifier specialised in identifying football draw outcomes across five European leagues — solving one of the hardest prediction problems in sports analytics.
+      </p>
+      <div class="hero-badges">
+        <span class="hero-badge">EPL</span>
+        <span class="hero-badge">La Liga</span>
+        <span class="hero-badge">Bundesliga</span>
+        <span class="hero-badge">Serie A</span>
+        <span class="hero-badge">Ligue 1</span>
+      </div>
+      <div class="case-meta">
+        <div class="meta-item">
+          <div class="meta-label">Type</div>
+          <div class="meta-value">Personal ML Project</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Data</div>
+          <div class="meta-value">1,752 matches · 2023/24 season</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Algorithm</div>
+          <div class="meta-value">Random Forest (200 trees)</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Code</div>
+          <div class="meta-value"><a href="https://github.com/mutilekim/draw-hunter-3000" target="_blank" style="color:var(--gold-light);">github.com/mutilekim</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="case-content">
+
+    <!-- PROBLEM -->
+    <div class="case-section">
+      <div class="case-section-label">The Problem</div>
+      <h2>Why draws are so hard to predict</h2>
+      <p>
+        In football analytics, draws are the minority outcome — occurring in roughly 26% of matches across European leagues. Standard machine learning models optimise for overall accuracy, which means they learn to predict the majority outcomes (home wins and away wins) while almost completely ignoring draws.
+      </p>
+      <p>
+        A naive model that simply predicts "Home Win" every time achieves 46% accuracy on EPL data but catches zero draws. Draw Hunter 3000 was built specifically to solve this — treating draw detection as a specialised classification task rather than a general prediction problem.
+      </p>
+
+      <div class="insight-box">
+        <h4>The core challenge</h4>
+        <p>Out of 1,752 matches across five leagues, only 463 ended in draws (26.4%). Any model that does not specifically account for this class imbalance will learn to ignore draws entirely and still report high accuracy. The solution is to use class balancing, optimise for recall rather than accuracy, and tune the decision threshold specifically for draw detection.</p>
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="case-section">
+      <div class="case-section-label">Results</div>
+      <h2>Model Performance</h2>
+
+      <div class="results-panel">
+        <h3>DRAW HUNTER 3000 — FINAL SCORES</h3>
+        <div class="results-metrics">
+          <div class="result-metric">
+            <div class="result-number">0.683</div>
+            <div class="result-label">AUC-ROC Score</div>
+            <div class="result-note">vs 0.5 random baseline</div>
+          </div>
+          <div class="result-metric">
+            <div class="result-number">77%</div>
+            <div class="result-label">Draw Recall @ threshold 0.45</div>
+            <div class="result-note">Draws correctly identified</div>
+          </div>
+          <div class="result-metric">
+            <div class="result-number">37%</div>
+            <div class="result-label">Draw Precision @ threshold 0.45</div>
+            <div class="result-note">vs 26% random baseline</div>
+          </div>
+          <div class="result-metric">
+            <div class="result-number">1,752</div>
+            <div class="result-label">Matches in dataset</div>
+            <div class="result-note">5 leagues · 2023/24 season</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WORKFLOW -->
+    <div class="case-section">
+      <div class="case-section-label">Methodology</div>
+      <h2>How it was built</h2>
+
+      <div class="workflow-steps">
+        <div class="workflow-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>Data Collection</h4>
+            <p>Loaded historical match data from football-data.co.uk for EPL, La Liga, Bundesliga, Serie A, and Ligue 1 (2023/24 season) using pandas read_csv with direct URLs. Combined into a single dataframe of 1,752 matches.</p>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>Exploratory Analysis</h4>
+            <p>Analysed draw distribution across leagues (26.4% overall). Identified that draws were the minority class and that standard accuracy metrics would be misleading — confirmed the need for recall-focused evaluation.</p>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>Feature Engineering</h4>
+            <p>Created new predictive features including half-time goal difference, home and away shot accuracy ratios, and implied draw probability from betting odds (1 / B365D). Selected 21 features covering shots, corners, fouls, cards, and odds.</p>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h4>Modelling</h4>
+            <p>Trained and compared three models: Logistic Regression, Random Forest, and Gradient Boosting. Applied class_weight='balanced' to account for the draw minority class. Used stratified train/test split (80/20) to maintain draw proportions.</p>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <h4>Threshold Optimisation</h4>
+            <p>Generated precision-recall curves across thresholds from 0.30 to 0.60. Selected threshold 0.45 as the optimal balance — catching 77% of draws at 37% precision, nearly 1.5x the random baseline.</p>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="step-num">6</div>
+          <div class="step-content">
+            <h4>Model Persistence</h4>
+            <p>Saved the trained model, scaler, and feature list using joblib and JSON for reuse on new match data without retraining.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODEL COMPARISON -->
+    <div class="case-section">
+      <div class="case-section-label">Model Selection</div>
+      <h2>Why Random Forest won</h2>
+      <p>Three algorithms were trained and evaluated specifically on their ability to detect draws — not just overall accuracy.</p>
+
+      <table class="model-table">
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>Draw Recall</th>
+            <th>Draw Precision</th>
+            <th>Overall Accuracy</th>
+            <th>Selected?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Logistic Regression</td>
+            <td>59%</td>
+            <td>32%</td>
+            <td>56%</td>
+            <td>No</td>
+          </tr>
+          <tr class="winner">
+            <td>Random Forest <span class="winner-badge">SELECTED</span></td>
+            <td>66%</td>
+            <td>39%</td>
+            <td>64%</td>
+            <td>✅ Yes</td>
+          </tr>
+          <tr>
+            <td>Gradient Boosting</td>
+            <td>10%</td>
+            <td>29%</td>
+            <td>70%</td>
+            <td>No</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="insight-box" style="margin-top:1.2rem;">
+        <h4>Why Gradient Boosting was rejected</h4>
+        <p>Gradient Boosting achieved 70% overall accuracy — the highest of the three. But it only caught 10% of actual draws. This is the exact failure mode this project was designed to avoid. A model that misses 9 out of 10 draws is useless for draw prediction regardless of its accuracy score.</p>
+      </div>
+    </div>
+
+    <!-- FEATURES -->
+    <div class="case-section">
+      <div class="case-section-label">Feature Importance</div>
+      <h2>What predicts a draw?</h2>
+
+      <div class="features-list">
+        <div class="feature-row">
+          <div class="feature-rank">1</div>
+          <div class="feature-info">
+            <h4>Half-time Goal Difference</h4>
+            <p>The single strongest signal. Matches level at half time are far more likely to end as draws.</p>
+          </div>
+          <div class="feature-bar-wrap">
+            <div class="feature-bar-bg"><div class="feature-bar-fill" style="width:100%"></div></div>
+            <span class="feature-score">0.150</span>
+          </div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-rank">2</div>
+          <div class="feature-info">
+            <h4>Home Shot Accuracy</h4>
+            <p>Clinical home teams are less likely to drop points. Low accuracy signals a potential draw.</p>
+          </div>
+          <div class="feature-bar-wrap">
+            <div class="feature-bar-bg"><div class="feature-bar-fill" style="width:46%"></div></div>
+            <span class="feature-score">0.069</span>
+          </div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-rank">3</div>
+          <div class="feature-info">
+            <h4>Home Win Odds (B365H)</h4>
+            <p>High home win odds signal a competitive match where a draw is plausible.</p>
+          </div>
+          <div class="feature-bar-wrap">
+            <div class="feature-bar-bg"><div class="feature-bar-fill" style="width:45%"></div></div>
+            <span class="feature-score">0.068</span>
+          </div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-rank">4</div>
+          <div class="feature-info">
+            <h4>Away Win Odds (B365A)</h4>
+            <p>Bookmaker odds encode enormous amounts of pre-match information about likely outcomes.</p>
+          </div>
+          <div class="feature-bar-wrap">
+            <div class="feature-bar-bg"><div class="feature-bar-fill" style="width:43%"></div></div>
+            <span class="feature-score">0.064</span>
+          </div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-rank">5</div>
+          <div class="feature-info">
+            <h4>Away Shot Accuracy</h4>
+            <p>Wasteful away teams struggle to win, making draws more likely.</p>
+          </div>
+          <div class="feature-bar-wrap">
+            <div class="feature-bar-bg"><div class="feature-bar-fill" style="width:37%"></div></div>
+            <span class="feature-score">0.056</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TECH -->
+    <div class="case-section">
+      <div class="case-section-label">Tools Used</div>
+      <h2>Technology Stack</h2>
+      <div class="tech-tags">
+        <span class="tech-tag">Python 3</span>
+        <span class="tech-tag">pandas</span>
+        <span class="tech-tag">scikit-learn</span>
+        <span class="tech-tag">NumPy</span>
+        <span class="tech-tag">Matplotlib</span>
+        <span class="tech-tag">joblib</span>
+        <span class="tech-tag">Google Colab</span>
+        <span class="tech-tag">Random Forest</span>
+        <span class="tech-tag">Precision-Recall Analysis</span>
+        <span class="tech-tag">AUC-ROC Evaluation</span>
+        <span class="tech-tag">Class Imbalance Handling</span>
+        <span class="tech-tag">Threshold Optimisation</span>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="case-cta">
+      <h3>View the full code on GitHub</h3>
+      <p>The complete notebook, saved model, and data pipeline are available on GitHub.</p>
+      <a href="https://github.com/mutilekim/draw-hunter-3000" target="_blank" class="btn-primary">View on GitHub ↗</a>
+      <a href="index.html" class="btn-outline">Back to Portfolio</a>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2026 Ruth Mutile Kimeu &nbsp;|&nbsp; <a href="https://briefdeskke.co.ke" target="_blank">BriefDesk Solutions</a></p>
+  </footer>
+
+</body>
+</html>
