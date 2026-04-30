@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ruth Mutile Kimeu — Data Scientist & Systems Consultant</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <meta name="description" content="Ruth Mutile Kimeu — Data Scientist, Product Builder, and Founder of BriefDesk Solutions. Building data tools, predictive models, live products, and operational systems across education, agriculture, finance, and institutional quality."/>
+  <title>Ruth Mutile Kimeu — Data Scientist, Product Builder & Founder</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+
   <style>
     :root {
       --ink: #0f0f0f;
@@ -16,6 +19,7 @@
       --muted: #6b6560;
       --card-bg: #ffffff;
       --border: #e0dbd3;
+      --dark: #171729;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -30,7 +34,8 @@
       line-height: 1.7;
     }
 
-    /* NAV */
+    a { color: inherit; text-decoration: none; }
+
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -39,7 +44,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 1.2rem 4rem;
-      background: rgba(247,244,239,0.92);
+      background: rgba(247,244,239,0.94);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--border);
     }
@@ -48,27 +53,26 @@
       font-family: 'Playfair Display', serif;
       font-size: 1.1rem;
       color: var(--teal);
-      text-decoration: none;
       letter-spacing: 0.02em;
     }
 
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+
     .nav-links a {
-      font-size: 0.85rem;
-      font-weight: 500;
-      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 700;
       color: var(--muted);
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       transition: color 0.2s;
     }
+
     .nav-links a:hover { color: var(--teal); }
 
-    /* HERO */
     .hero {
       min-height: 100vh;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.08fr 0.92fr;
       padding-top: 80px;
     }
 
@@ -79,29 +83,34 @@
       padding: 6rem 4rem 6rem 6rem;
     }
 
-    .hero-tag {
-      font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.15em;
+    .eyebrow,
+    .hero-tag,
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.17em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
       display: flex;
       align-items: center;
       gap: 0.75rem;
     }
-    .hero-tag::before {
+
+    .eyebrow::before,
+    .hero-tag::before,
+    .section-label::before {
       content: '';
       display: inline-block;
-      width: 32px;
+      width: 30px;
       height: 1px;
       background: var(--gold);
     }
 
     .hero-name {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.8rem, 5vw, 4.2rem);
-      line-height: 1.1;
+      font-size: clamp(2.8rem, 5vw, 4.4rem);
+      line-height: 1.08;
       color: var(--ink);
       margin-bottom: 1.5rem;
     }
@@ -112,61 +121,74 @@
     }
 
     .hero-desc {
-      font-size: 1.05rem;
+      font-size: 1.08rem;
       color: var(--muted);
-      max-width: 440px;
-      margin-bottom: 3rem;
+      max-width: 590px;
+      margin-bottom: 1.4rem;
       font-weight: 300;
-      line-height: 1.8;
+      line-height: 1.85;
+    }
+
+    .hero-proof {
+      max-width: 590px;
+      color: var(--ink);
+      font-weight: 500;
+      margin-bottom: 2.2rem;
+      border-left: 3px solid var(--gold);
+      padding-left: 1rem;
     }
 
     .hero-roles {
       display: flex;
       flex-wrap: wrap;
       gap: 0.6rem;
-      margin-bottom: 3rem;
+      margin-bottom: 2.6rem;
     }
 
     .role-tag {
-      padding: 0.4rem 1rem;
+      padding: 0.42rem 1rem;
       border: 1px solid var(--teal);
       color: var(--teal);
-      font-size: 0.8rem;
-      font-weight: 500;
+      font-size: 0.78rem;
+      font-weight: 700;
       letter-spacing: 0.05em;
-      border-radius: 2px;
+      border-radius: 999px;
+      background: rgba(26,95,95,0.04);
     }
 
-    .hero-cta {
-      display: flex;
-      gap: 1rem;
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+    .btn-primary,
+    .btn-outline {
+      padding: 0.88rem 1.7rem;
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      transition: 0.2s ease;
+      border-radius: 4px;
+      display: inline-block;
     }
 
     .btn-primary {
-      padding: 0.85rem 2rem;
       background: var(--teal);
       color: #fff;
-      text-decoration: none;
-      font-size: 0.88rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      transition: background 0.2s, transform 0.2s;
-      border-radius: 2px;
     }
-    .btn-primary:hover { background: var(--teal-light); transform: translateY(-2px); }
+
+    .btn-primary:hover {
+      background: var(--teal-light);
+      transform: translateY(-2px);
+    }
 
     .btn-outline {
-      padding: 0.85rem 2rem;
       border: 1px solid var(--ink);
       color: var(--ink);
-      text-decoration: none;
-      font-size: 0.88rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      transition: all 0.2s;
-      border-radius: 2px;
     }
-    .btn-outline:hover { background: var(--ink); color: var(--paper); transform: translateY(-2px); }
+
+    .btn-outline:hover {
+      background: var(--ink);
+      color: var(--paper);
+      transform: translateY(-2px);
+    }
 
     .hero-right {
       background: var(--teal);
@@ -200,16 +222,22 @@
     .stats-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
+      gap: 1.4rem;
       position: relative;
       z-index: 1;
+      width: 100%;
     }
 
-    .stat-item { }
+    .stat-item {
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.06);
+      border-radius: 8px;
+      padding: 1.4rem;
+    }
 
     .stat-number {
       font-family: 'Playfair Display', serif;
-      font-size: 3rem;
+      font-size: 2.8rem;
       color: var(--gold-light);
       line-height: 1;
       margin-bottom: 0.4rem;
@@ -217,15 +245,15 @@
 
     .stat-label {
       font-size: 0.82rem;
-      color: rgba(255,255,255,0.65);
+      color: rgba(255,255,255,0.7);
       font-weight: 300;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.03em;
       line-height: 1.4;
     }
 
     .hero-quote {
-      margin-top: 3.5rem;
-      padding-top: 2.5rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
       border-top: 1px solid rgba(255,255,255,0.15);
       position: relative;
       z-index: 1;
@@ -234,56 +262,35 @@
     .hero-quote p {
       font-family: 'Playfair Display', serif;
       font-style: italic;
-      color: rgba(255,255,255,0.8);
-      font-size: 1.05rem;
+      color: rgba(255,255,255,0.82);
+      font-size: 1.08rem;
       line-height: 1.7;
     }
 
-    /* SECTIONS */
     section { padding: 7rem 6rem; }
-
-    .section-label {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .section-label::before {
-      content: '';
-      display: inline-block;
-      width: 24px;
-      height: 1px;
-      background: var(--gold);
-    }
 
     .section-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
-      line-height: 1.2;
-      margin-bottom: 1.2rem;
+      font-size: clamp(2rem, 3.5vw, 2.9rem);
+      line-height: 1.18;
+      margin-bottom: 1.1rem;
       color: var(--ink);
     }
 
     .section-intro {
       font-size: 1rem;
       color: var(--muted);
-      max-width: 560px;
+      max-width: 720px;
       font-weight: 300;
       line-height: 1.8;
-      margin-bottom: 4rem;
+      margin-bottom: 3rem;
     }
 
-    /* ABOUT */
     #about {
       background: var(--card-bg);
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 6rem;
+      gap: 5rem;
       align-items: center;
     }
 
@@ -294,6 +301,32 @@
       margin-bottom: 1.2rem;
     }
 
+    .trust-strip {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .trust-card {
+      border: 1px solid var(--border);
+      padding: 1rem;
+      border-radius: 6px;
+      background: var(--paper);
+    }
+
+    .trust-card strong {
+      display: block;
+      color: var(--teal);
+      font-size: 0.86rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .trust-card span {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
     .skills-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -301,20 +334,21 @@
     }
 
     .skill-card {
-      padding: 1.5rem;
+      padding: 1.4rem;
       border: 1px solid var(--border);
-      border-radius: 4px;
+      border-radius: 6px;
       transition: border-color 0.2s, transform 0.2s;
     }
-    .skill-card:hover { border-color: var(--teal); transform: translateY(-3px); }
 
-    .skill-icon {
-      font-size: 1.5rem;
-      margin-bottom: 0.6rem;
+    .skill-card:hover {
+      border-color: var(--teal);
+      transform: translateY(-3px);
     }
 
+    .skill-icon { font-size: 1.5rem; margin-bottom: 0.6rem; }
+
     .skill-name {
-      font-weight: 500;
+      font-weight: 700;
       font-size: 0.9rem;
       color: var(--ink);
       margin-bottom: 0.3rem;
@@ -326,32 +360,90 @@
       font-weight: 300;
     }
 
-    /* PROJECTS */
+    #briefdesk {
+      background: var(--dark);
+      color: white;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    #briefdesk .section-title { color: white; }
+    #briefdesk .section-intro,
+    #briefdesk p { color: rgba(255,255,255,0.72); }
+
+    .briefdesk-panel {
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      padding: 2rem;
+    }
+
+    .briefdesk-panel h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--gold-light);
+      font-size: 1.7rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .briefdesk-services {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .briefdesk-service {
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.04);
+      border-radius: 8px;
+      padding: 1.2rem;
+    }
+
+    .briefdesk-service strong {
+      display: block;
+      color: white;
+      margin-bottom: 0.3rem;
+      font-size: 0.9rem;
+    }
+
+    .briefdesk-service span {
+      color: rgba(255,255,255,0.68);
+      font-size: 0.82rem;
+      font-weight: 300;
+    }
+
     #projects { background: var(--paper); }
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
       gap: 2rem;
     }
 
     .project-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 4px;
+      border-radius: 8px;
       overflow: hidden;
       transition: transform 0.25s, box-shadow 0.25s;
-      text-decoration: none;
       color: inherit;
       display: block;
     }
+
     .project-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 20px 50px rgba(0,0,0,0.08);
     }
 
+    .project-card.featured {
+      grid-column: span 2;
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+    }
+
     .project-banner {
-      height: 180px;
+      min-height: 190px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -360,6 +452,9 @@
       overflow: hidden;
     }
 
+    .project-card.featured .project-banner { min-height: 100%; }
+
+    .banner-maji { background: linear-gradient(135deg, #1a5f5f 0%, #0e3838 100%); }
     .banner-tera { background: linear-gradient(135deg, var(--teal) 0%, #0d3d3d 100%); }
     .banner-jackpot { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); }
     .banner-biashara { background: linear-gradient(135deg, #2d4a22 0%, #1a2d14 100%); }
@@ -368,21 +463,21 @@
     .project-banner-label {
       position: absolute;
       top: 1rem; right: 1rem;
-      font-size: 0.7rem;
-      font-weight: 500;
+      font-size: 0.68rem;
+      font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       padding: 0.3rem 0.7rem;
-      border-radius: 2px;
-      background: rgba(255,255,255,0.15);
-      color: rgba(255,255,255,0.85);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.16);
+      color: rgba(255,255,255,0.88);
     }
 
     .project-body { padding: 2rem; }
 
     .project-type {
       font-size: 0.72rem;
-      font-weight: 500;
+      font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--gold);
@@ -391,25 +486,54 @@
 
     .project-title {
       font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
+      font-size: 1.35rem;
       color: var(--ink);
       margin-bottom: 0.8rem;
       line-height: 1.3;
     }
 
+    .project-card.featured .project-title { font-size: 1.7rem; }
+
     .project-desc {
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       color: var(--muted);
       font-weight: 300;
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
+      line-height: 1.75;
+      margin-bottom: 1.2rem;
+    }
+
+    .project-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.7rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .project-metric {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      padding: 0.85rem;
+      border-radius: 6px;
+    }
+
+    .project-metric strong {
+      display: block;
+      color: var(--teal);
+      font-size: 1.15rem;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .project-metric span {
+      color: var(--muted);
+      font-size: 0.72rem;
     }
 
     .project-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.4rem;
     }
 
     .tag {
@@ -417,14 +541,14 @@
       padding: 0.25rem 0.65rem;
       background: var(--paper);
       border: 1px solid var(--border);
-      border-radius: 2px;
+      border-radius: 999px;
       color: var(--muted);
-      font-weight: 500;
+      font-weight: 700;
     }
 
     .project-link {
       font-size: 0.82rem;
-      font-weight: 500;
+      font-weight: 700;
       color: var(--teal);
       letter-spacing: 0.05em;
       display: flex;
@@ -432,41 +556,101 @@
       gap: 0.4rem;
       transition: gap 0.2s;
     }
+
     .project-card:hover .project-link { gap: 0.7rem; }
 
-    /* CONTACT */
+    #process {
+      background: var(--card-bg);
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .process-card {
+      border: 1px solid var(--border);
+      background: var(--paper);
+      padding: 1.4rem;
+      border-radius: 8px;
+    }
+
+    .process-card span {
+      color: var(--gold);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+
+    .process-card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .process-card p {
+      color: var(--muted);
+      font-weight: 300;
+      font-size: 0.84rem;
+    }
+
     #contact {
       background: var(--teal);
       color: white;
       text-align: center;
     }
 
-    #contact .section-label { color: var(--gold-light); justify-content: center; }
+    #contact .section-label {
+      color: var(--gold-light);
+      justify-content: center;
+    }
+
     #contact .section-label::before { background: var(--gold-light); }
     #contact .section-title { color: white; }
-    #contact .section-intro { color: rgba(255,255,255,0.7); margin: 0 auto 3rem; }
+    #contact .section-intro {
+      color: rgba(255,255,255,0.72);
+      margin: 0 auto 2rem;
+    }
+
+    .availability {
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.4rem;
+    }
+
+    .availability span {
+      border: 1px solid rgba(255,255,255,0.24);
+      border-radius: 999px;
+      padding: 0.45rem 0.9rem;
+      color: rgba(255,255,255,0.86);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
 
     .contact-links {
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
+      gap: 1rem;
       flex-wrap: wrap;
     }
 
     .contact-link {
-      padding: 0.85rem 2rem;
+      padding: 0.85rem 1.5rem;
       border: 1px solid rgba(255,255,255,0.3);
       color: white;
-      text-decoration: none;
-      font-size: 0.88rem;
-      font-weight: 500;
+      font-size: 0.86rem;
+      font-weight: 700;
       letter-spacing: 0.06em;
-      border-radius: 2px;
+      border-radius: 4px;
       transition: all 0.2s;
       display: flex;
       align-items: center;
       gap: 0.5rem;
     }
+
     .contact-link:hover {
       background: rgba(255,255,255,0.1);
       border-color: rgba(255,255,255,0.6);
@@ -478,9 +662,12 @@
       border-color: var(--gold);
       color: white;
     }
-    .contact-link.primary:hover { background: var(--gold-light); border-color: var(--gold-light); }
 
-    /* FOOTER */
+    .contact-link.primary:hover {
+      background: var(--gold-light);
+      border-color: var(--gold-light);
+    }
+
     footer {
       background: var(--ink);
       color: rgba(255,255,255,0.4);
@@ -490,9 +677,8 @@
       letter-spacing: 0.05em;
     }
 
-    footer a { color: var(--gold-light); text-decoration: none; }
+    footer a { color: var(--gold-light); }
 
-    /* ANIMATIONS */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(24px); }
       to { opacity: 1; transform: translateY(0); }
@@ -502,52 +688,98 @@
       animation: fadeUp 0.7s ease forwards;
       opacity: 0;
     }
+
     .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
     .hero-left > *:nth-child(2) { animation-delay: 0.2s; }
     .hero-left > *:nth-child(3) { animation-delay: 0.3s; }
     .hero-left > *:nth-child(4) { animation-delay: 0.4s; }
     .hero-left > *:nth-child(5) { animation-delay: 0.5s; }
+    .hero-left > *:nth-child(6) { animation-delay: 0.6s; }
 
-    /* RESPONSIVE */
+    @media (max-width: 1050px) {
+      .project-card.featured {
+        grid-column: span 1;
+        grid-template-columns: 1fr;
+      }
+
+      .process-grid { grid-template-columns: repeat(2, 1fr); }
+      #briefdesk { grid-template-columns: 1fr; }
+    }
+
     @media (max-width: 900px) {
       nav { padding: 1rem 2rem; }
-      .nav-links { gap: 1.5rem; }
+      .nav-links { display: none; }
       .hero { grid-template-columns: 1fr; }
       .hero-left { padding: 5rem 2rem 3rem; }
       .hero-right { padding: 3rem 2rem; }
-      .stats-grid { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
       section { padding: 5rem 2rem; }
       #about { grid-template-columns: 1fr; gap: 3rem; }
+      .trust-strip { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 620px) {
+      .stats-grid,
+      .skills-grid,
+      .briefdesk-services,
+      .project-metrics,
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-cta,
+      .contact-links {
+        flex-direction: column;
+      }
+
+      .btn-primary,
+      .btn-outline,
+      .contact-link {
+        text-align: center;
+        justify-content: center;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <nav>
     <a href="#" class="nav-brand">Ruth Mutile Kimeu</a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
+      <li><a href="#briefdesk">BriefDesk</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#process">Process</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-left">
       <div class="hero-tag">Nairobi, Kenya</div>
+
       <h1 class="hero-name">Ruth <em>Mutile</em><br>Kimeu</h1>
+
       <p class="hero-desc">
-        Data Scientist and Systems Consultant turning complex data and operational challenges into elegant, working solutions — across education, finance, and higher education in East Africa and beyond.
+        Data Scientist, Product Builder, and Founder of BriefDesk Solutions — creating practical data tools,
+        predictive models, live products, and operational systems for education, agriculture, finance, and institutional quality.
       </p>
+
+      <p class="hero-proof">
+        I help organisations move from scattered workflows and manual reporting to structured systems,
+        clearer decisions, and tools that people can actually use.
+      </p>
+
       <div class="hero-roles">
         <span class="role-tag">Data Scientist</span>
-        <span class="role-tag">Data Analyst</span>
-        <span class="role-tag">Administrative Systems Consultant</span>
+        <span class="role-tag">Product Builder</span>
+        <span class="role-tag">Systems Designer</span>
+        <span class="role-tag">Founder, BriefDesk Solutions</span>
       </div>
+
       <div class="hero-cta">
-        <a href="#projects" class="btn-primary">View My Work</a>
-        <a href="#contact" class="btn-outline">Get In Touch</a>
+        <a href="#projects" class="btn-primary">View Selected Work</a>
+        <a href="https://www.briefdeskke.co.ke/" target="_blank" class="btn-outline">Visit BriefDesk</a>
       </div>
     </div>
 
@@ -555,43 +787,66 @@
       <div class="stats-grid">
         <div class="stat-item">
           <div class="stat-number">10+</div>
-          <div class="stat-label">Years of professional experience</div>
+          <div class="stat-label">Years of institutional and administrative experience</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">12</div>
-          <div class="stat-label">Linked Google Sheets files built for TERA OMS</div>
+          <div class="stat-number">1K</div>
+          <div class="stat-label">Farm records analysed in predictive modelling project</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">3</div>
-          <div class="stat-label">Published and forthcoming books authored</div>
+          <div class="stat-number">0.966</div>
+          <div class="stat-label">R² score achieved in agricultural yield model</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">ML</div>
-          <div class="stat-label">Machine Learning certification in progress at ALX Africa</div>
+          <div class="stat-number">Live</div>
+          <div class="stat-label">BiasharaFlow fintech product deployed</div>
         </div>
       </div>
+
       <div class="hero-quote">
         <p>"I build systems that work, analysis that speaks, and documentation that lasts."</p>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section id="about">
     <div class="about-text">
       <div class="section-label">About Me</div>
-      <h2 class="section-title">Where data meets operational excellence</h2>
+      <h2 class="section-title">Where data science meets operational excellence</h2>
+
       <p>
-        I am a Data Scientist, Analyst, and Administrative Systems Consultant based in Nairobi, Kenya. My work sits at the intersection of data science, operations management, and institutional systems design.
+        I am a Data Scientist, Analyst, Systems Designer, and Founder based in Nairobi, Kenya. My work sits at the intersection of
+        data science, operations management, institutional systems, product thinking, and decision-support tools.
       </p>
+
       <p>
-        At Aga Khan University's Network of Quality Teaching and Learning, I support a team spanning East Africa, Central Asia, and Europe — managing data pipelines, reporting systems, and institutional quality frameworks. Alongside this, I run BriefDesk Solutions, a boutique consultancy delivering data and administrative systems to schools, NGOs, and SMEs.
+        At Aga Khan University's Network of Quality Teaching and Learning, I support work across East Africa, Central Asia,
+        and Europe — managing data pipelines, reporting systems, quality frameworks, and institutional documentation.
       </p>
+
       <p>
-        I am currently completing a BSc in Data Science at the Open University of Kenya, a BSc in Health Sciences at University of the People, and a Machine Learning certification at ALX Africa.
+        Through BriefDesk Solutions, I help organisations improve workflows, implement practical systems, and build
+        reporting structures that support better decisions.
       </p>
-      <div style="margin-top: 2rem;">
-        <a href="tera-oms.html" class="btn-primary">View Featured Project →</a>
+
+      <p>
+        I am currently completing a BSc in Data Science at the Open University of Kenya, a BSc in Health Sciences at
+        University of the People, and a Machine Learning certification at ALX Africa.
+      </p>
+
+      <div class="trust-strip">
+        <div class="trust-card">
+          <strong>Institutions</strong>
+          <span>Quality frameworks, reporting, and documentation</span>
+        </div>
+        <div class="trust-card">
+          <strong>Schools</strong>
+          <span>Operations systems, dashboards, and continuity planning</span>
+        </div>
+        <div class="trust-card">
+          <strong>SMEs</strong>
+          <span>Finance, admin, digital products, and reporting tools</span>
+        </div>
       </div>
     </div>
 
@@ -599,53 +854,197 @@
       <div class="skill-card">
         <div class="skill-icon">🐍</div>
         <div class="skill-name">Python & Machine Learning</div>
-        <div class="skill-desc">pandas, NumPy, scikit-learn, regression, classification, ML pipelines</div>
+        <div class="skill-desc">pandas, NumPy, scikit-learn, regression, classification, model evaluation</div>
       </div>
+
       <div class="skill-card">
         <div class="skill-icon">🗄️</div>
         <div class="skill-name">SQL & Data Management</div>
         <div class="skill-desc">Querying, data cleaning, relational databases, structured analysis</div>
       </div>
+
       <div class="skill-card">
         <div class="skill-icon">📊</div>
-        <div class="skill-name">Data Visualisation</div>
-        <div class="skill-desc">Power BI, Google Sheets dashboards, charts, KPI reporting</div>
+        <div class="skill-name">Operational Dashboards</div>
+        <div class="skill-desc">Power BI, Google Sheets dashboards, KPI reports, executive summaries</div>
       </div>
+
       <div class="skill-card">
         <div class="skill-icon">⚙️</div>
-        <div class="skill-name">Systems Design</div>
-        <div class="skill-desc">Multi-file Google Sheets architectures, automation, operational dashboards</div>
+        <div class="skill-name">Systems Architecture</div>
+        <div class="skill-desc">Multi-file Google Sheets systems, automation, workflow design, data visibility</div>
       </div>
+
       <div class="skill-card">
         <div class="skill-icon">📋</div>
         <div class="skill-name">Quality Assurance</div>
         <div class="skill-desc">Institutional review frameworks, accreditation support, gap tracking</div>
       </div>
+
       <div class="skill-card">
         <div class="skill-icon">✍️</div>
         <div class="skill-name">Technical Writing</div>
-        <div class="skill-desc">Reports, proposals, grant writing, meeting documentation</div>
+        <div class="skill-desc">Reports, proposals, grant writing, case studies, meeting documentation</div>
       </div>
     </div>
   </section>
 
-  <!-- PROJECTS -->
+  <section id="briefdesk">
+    <div>
+      <div class="section-label">BriefDesk Solutions</div>
+      <h2 class="section-title">Structure. Systems. Smarter Decisions.</h2>
+      <p class="section-intro">
+        BriefDesk Solutions is the consultancy side of my work — helping organisations move from scattered workflows,
+        manual reporting, and fragmented operations to clearer systems and better decision-making.
+      </p>
+
+      <div class="hero-cta">
+        <a href="https://www.briefdeskke.co.ke/" target="_blank" class="btn-primary">Visit BriefDesk</a>
+        <a href="https://www.briefdeskke.co.ke/#services" target="_blank" class="btn-outline" style="border-color:white;color:white;">View Services</a>
+      </div>
+    </div>
+
+    <div class="briefdesk-panel">
+      <h3>Consulting practice built from real operational problems</h3>
+      <p>
+        BriefDesk brings together executive administration, workflow improvement, data capability,
+        reporting support, and product thinking in one practice.
+      </p>
+
+      <div class="briefdesk-services" style="margin-top:1.5rem;">
+        <div class="briefdesk-service">
+          <strong>Systems audits</strong>
+          <span>Workflow, documentation, reporting, and tool review.</span>
+        </div>
+
+        <div class="briefdesk-service">
+          <strong>Operations systems</strong>
+          <span>Google Sheets systems, linked workflows, and OMS builds.</span>
+        </div>
+
+        <div class="briefdesk-service">
+          <strong>Dashboards & reporting</strong>
+          <span>Data cleaning, KPI reporting, Power BI, Excel, and decision support.</span>
+        </div>
+
+        <div class="briefdesk-service">
+          <strong>Digital products</strong>
+          <span>Practical tools shaped by real administrative and SME problems.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="projects">
     <div class="section-label">Portfolio</div>
     <h2 class="section-title">Selected Projects</h2>
-    <p class="section-intro">Real-world systems, analyses, and tools built for actual clients and institutions.</p>
+    <p class="section-intro">
+      Real-world systems, analyses, models, and tools built for actual operational, academic, business, and consulting contexts.
+    </p>
 
     <div class="projects-grid">
+
+      <a href="maji-ndogo-analysis.html" class="project-card featured">
+        <div class="project-banner banner-maji">
+          🌾
+          <span class="project-banner-label">Featured Data Science</span>
+        </div>
+
+        <div class="project-body">
+          <div class="project-type">Data Science · Agriculture · Predictive Modelling</div>
+          <h3 class="project-title">Maji Ndogo Agricultural Yield Analysis</h3>
+
+          <p class="project-desc">
+            End-to-end agricultural data analysis covering 1,000 farm records across 7 provinces and 9 crop types.
+            The project identifies soil moisture, fertilizer use, and irrigation as key yield drivers and develops
+            a predictive model to estimate crop yield for unseen farm records.
+          </p>
+
+          <div class="project-metrics">
+            <div class="project-metric">
+              <strong>1,000</strong>
+              <span>farm records</span>
+            </div>
+            <div class="project-metric">
+              <strong>0.966</strong>
+              <span>model R²</span>
+            </div>
+            <div class="project-metric">
+              <strong>1.216</strong>
+              <span>MAE</span>
+            </div>
+          </div>
+
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">pandas</span>
+            <span class="tag">scikit-learn</span>
+            <span class="tag">Regression</span>
+            <span class="tag">EDA</span>
+            <span class="tag">Random Forest</span>
+          </div>
+
+          <div class="project-link">Read Case Study →</div>
+        </div>
+      </a>
+
+      <a href="https://biasharaflow.base44.app/" target="_blank" class="project-card">
+        <div class="project-banner banner-biashara">
+          📱
+          <span class="project-banner-label">Live Product</span>
+        </div>
+
+        <div class="project-body">
+          <div class="project-type">Product Development · Fintech · AI</div>
+          <h3 class="project-title">BiasharaFlow — SME Finance Tracker</h3>
+
+          <p class="project-desc">
+            A live AI-powered finance tracking tool for Kenyan SMEs, designed to simplify daily income and
+            expense tracking through mobile-first workflows and natural language input.
+          </p>
+
+          <div class="project-metrics">
+            <div class="project-metric">
+              <strong>Live</strong>
+              <span>deployed app</span>
+            </div>
+            <div class="project-metric">
+              <strong>AI</strong>
+              <span>smart tracking</span>
+            </div>
+            <div class="project-metric">
+              <strong>SME</strong>
+              <span>finance focus</span>
+            </div>
+          </div>
+
+          <div class="project-tags">
+            <span class="tag">AI Integration</span>
+            <span class="tag">Finance Tracking</span>
+            <span class="tag">Product Design</span>
+            <span class="tag">Fintech</span>
+            <span class="tag">SME Tools</span>
+          </div>
+
+          <div class="project-link">View Live Product →</div>
+        </div>
+      </a>
 
       <a href="tera-oms.html" class="project-card">
         <div class="project-banner banner-tera">
           🏫
-          <span class="project-banner-label">Featured</span>
+          <span class="project-banner-label">Systems</span>
         </div>
+
         <div class="project-body">
           <div class="project-type">Systems Design · Education</div>
           <h3 class="project-title">TERA School Operations Management System</h3>
-          <p class="project-desc">A 12-file linked Google Sheets system with a four-layer architecture managing attendance, fees, academics, staff, and inventory for a primary school in Vihiga County, Kenya.</p>
+
+          <p class="project-desc">
+            Designed and deployed a 12-file linked Google Sheets system used to manage attendance, fees,
+            academics, staff, and inventory for a primary school in Vihiga County, Kenya.
+          </p>
+
           <div class="project-tags">
             <span class="tag">Google Sheets</span>
             <span class="tag">IMPORTRANGE</span>
@@ -653,6 +1052,7 @@
             <span class="tag">VLOOKUP</span>
             <span class="tag">Data Architecture</span>
           </div>
+
           <div class="project-link">Read Case Study →</div>
         </div>
       </a>
@@ -662,10 +1062,16 @@
           ⚽
           <span class="project-banner-label">ML Project</span>
         </div>
+
         <div class="project-body">
           <div class="project-type">Machine Learning · Sports Analytics</div>
           <h3 class="project-title">Draw Hunter 3000</h3>
-          <p class="project-desc">A draw-specialised Random Forest model predicting football draw outcomes across 1,752 matches in 5 European leagues. Achieves 77% draw recall and AUC-ROC of 0.683, beating the random baseline by 43%.</p>
+
+          <p class="project-desc">
+            A draw-specialised Random Forest model predicting football draw outcomes across 1,752 matches
+            in 5 European leagues, achieving 77% draw recall and AUC-ROC of 0.683.
+          </p>
+
           <div class="project-tags">
             <span class="tag">Python</span>
             <span class="tag">scikit-learn</span>
@@ -673,38 +1079,26 @@
             <span class="tag">Sports Analytics</span>
             <span class="tag">pandas</span>
           </div>
+
           <div class="project-link">Read Case Study →</div>
         </div>
       </a>
-
-      <div class="project-card" style="cursor:default;">
-        <div class="project-banner banner-biashara">
-          📱
-          <span class="project-banner-label">Live Product</span>
-        </div>
-        <div class="project-body">
-          <div class="project-type">Product Development · Fintech</div>
-          <h3 class="project-title">BiasharaFlow — SME Finance Tracker</h3>
-          <p class="project-desc">An AI-powered WhatsApp-first finance tracking tool for Kenyan SMEs, with trilingual support in English, Swahili, and Sheng, and tiered subscription pricing.</p>
-          <div class="project-tags">
-            <span class="tag">AI Integration</span>
-            <span class="tag">WhatsApp API</span>
-            <span class="tag">Product Design</span>
-            <span class="tag">Fintech</span>
-          </div>
-          <div class="project-link" style="color:var(--muted);">Case Study Coming Soon</div>
-        </div>
-      </div>
 
       <a href="alx-data-science.html" class="project-card">
         <div class="project-banner banner-alx">
           🎓
           <span class="project-banner-label">Academic</span>
         </div>
+
         <div class="project-body">
           <div class="project-type">Data Science · Machine Learning</div>
           <h3 class="project-title">ALX Africa Data Science Projects</h3>
-          <p class="project-desc">A collection of ML and data analysis projects completed during the ALX Africa Data Science programme, including Python pipelines, pandas analysis, and a linear regression model achieving R² of 0.93 on the Maji Ndogo dataset.</p>
+
+          <p class="project-desc">
+            A collection of ML and data analysis projects completed during the ALX Africa Data Science programme,
+            including Python pipelines, pandas analysis, SQL, EDA, and linear regression modelling.
+          </p>
+
           <div class="project-tags">
             <span class="tag">Python</span>
             <span class="tag">pandas</span>
@@ -712,6 +1106,7 @@
             <span class="tag">SQL</span>
             <span class="tag">EDA</span>
           </div>
+
           <div class="project-link">Read Case Study →</div>
         </div>
       </a>
@@ -719,13 +1114,60 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <section id="process">
+    <div class="section-label">How I Work</div>
+    <h2 class="section-title">A practical process from problem to decision</h2>
+    <p class="section-intro">
+      My work combines technical analysis with operational context, so the final output is useful to both decision-makers and implementation teams.
+    </p>
+
+    <div class="process-grid">
+      <div class="process-card">
+        <span>01</span>
+        <h3>Define the problem</h3>
+        <p>Clarify the operational question, decision need, users, constraints, and success criteria.</p>
+      </div>
+
+      <div class="process-card">
+        <span>02</span>
+        <h3>Structure the data</h3>
+        <p>Clean, organise, validate, and transform messy information into usable datasets and workflows.</p>
+      </div>
+
+      <div class="process-card">
+        <span>03</span>
+        <h3>Analyse and model</h3>
+        <p>Use EDA, statistics, dashboards, and machine learning to identify patterns and test assumptions.</p>
+      </div>
+
+      <div class="process-card">
+        <span>04</span>
+        <h3>Turn insight into action</h3>
+        <p>Translate findings into recommendations, dashboards, systems, documentation, and next steps.</p>
+      </div>
+    </div>
+  </section>
+
   <section id="contact">
     <div class="section-label">Get In Touch</div>
-    <h2 class="section-title">Let's work together</h2>
-    <p class="section-intro">Open to data science roles, systems consulting projects, and collaborations across East Africa and internationally.</p>
+    <h2 class="section-title">Let's build something useful</h2>
+
+    <p class="section-intro">
+      Open to data science roles, analytics projects, systems consulting, institutional data strategy,
+      and collaborations across East Africa and internationally.
+    </p>
+
+    <div class="availability">
+      <span>Data Science Roles</span>
+      <span>Systems Consulting</span>
+      <span>Dashboards & Reporting</span>
+      <span>Digital Products</span>
+      <span>Response: 24–48 hours</span>
+    </div>
+
     <div class="contact-links">
       <a href="mailto:hello@briefdeskke.co.ke" class="contact-link primary">✉ hello@briefdeskke.co.ke</a>
+      <a href="https://www.briefdeskke.co.ke/" target="_blank" class="contact-link">BriefDesk Solutions</a>
       <a href="https://github.com/mutilekim" target="_blank" class="contact-link">GitHub</a>
       <a href="https://www.linkedin.com/in/ruth-kimeu-32a977142/" target="_blank" class="contact-link">LinkedIn</a>
       <a href="https://wa.me/254704787553" target="_blank" class="contact-link">WhatsApp</a>
