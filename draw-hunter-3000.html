@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Draw Hunter 3000 â Ruth Mutile Kimeu</title>
+  <title>Draw Hunter 3000 — Ruth Mutile Kimeu</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     :root {
@@ -71,7 +71,7 @@
     }
 
     .case-hero::before {
-      content: 'â½';
+      content: '⚽';
       position: absolute;
       right: 8%;
       top: 50%;
@@ -535,17 +535,17 @@
 
   <nav>
     <a href="index.html" class="nav-brand">Ruth Mutile Kimeu</a>
-    <a href="index.html" class="nav-back">â Back to Portfolio</a>
+    <a href="index.html" class="nav-back">← Back to Portfolio</a>
   </nav>
 
   <!-- HERO -->
   <div class="case-hero">
     <div class="case-hero-inner">
       <div class="breadcrumb"><a href="index.html">Portfolio</a> / Case Study</div>
-      <div class="case-type">Machine Learning Â· Sports Analytics Â· Python</div>
-      <h1 class="case-title">Draw Hunter 3000 â½</h1>
+      <div class="case-type">Machine Learning · Sports Analytics · Python</div>
+      <h1 class="case-title">Draw Hunter 3000 ⚽</h1>
       <p class="case-subtitle">
-        A Random Forest classifier specialised in identifying football draw outcomes across five European leagues â solving one of the hardest prediction problems in sports analytics.
+        A Random Forest classifier specialised in identifying football draw outcomes across five European leagues — solving one of the hardest prediction problems in sports analytics.
       </p>
       <div class="hero-badges">
         <span class="hero-badge">EPL</span>
@@ -561,7 +561,7 @@
         </div>
         <div class="meta-item">
           <div class="meta-label">Data</div>
-          <div class="meta-value">1,752 matches Â· 2023/24 season</div>
+          <div class="meta-value">1,752 matches · 2023/24 season</div>
         </div>
         <div class="meta-item">
           <div class="meta-label">Algorithm</div>
@@ -583,10 +583,10 @@
       <div class="case-section-label">The Problem</div>
       <h2>Why draws are so hard to predict</h2>
       <p>
-        In football analytics, draws are the minority outcome â occurring in roughly 26% of matches across European leagues. Standard machine learning models optimise for overall accuracy, which means they learn to predict the majority outcomes (home wins and away wins) while almost completely ignoring draws.
+        In football analytics, draws are the minority outcome — occurring in roughly 26% of matches across European leagues. Standard machine learning models optimise for overall accuracy, which means they learn to predict the majority outcomes (home wins and away wins) while almost completely ignoring draws.
       </p>
       <p>
-        A naive model that simply predicts "Home Win" every time achieves 46% accuracy on EPL data but catches zero draws. Draw Hunter 3000 was built specifically to solve this â treating draw detection as a specialised classification task rather than a general prediction problem.
+        A naive model that simply predicts "Home Win" every time achieves 46% accuracy on EPL data but catches zero draws. Draw Hunter 3000 was built specifically to solve this — treating draw detection as a specialised classification task rather than a general prediction problem.
       </p>
 
       <div class="insight-box">
@@ -601,7 +601,7 @@
       <h2>Model Performance</h2>
 
       <div class="results-panel">
-        <h3>DRAW HUNTER 3000 â FINAL SCORES</h3>
+        <h3>DRAW HUNTER 3000 — FINAL SCORES</h3>
         <div class="results-metrics">
           <div class="result-metric">
             <div class="result-number">0.683</div>
@@ -621,7 +621,7 @@
           <div class="result-metric">
             <div class="result-number">1,752</div>
             <div class="result-label">Matches in dataset</div>
-            <div class="result-note">5 leagues Â· 2023/24 season</div>
+            <div class="result-note">5 leagues · 2023/24 season</div>
           </div>
         </div>
       </div>
@@ -644,7 +644,7 @@
           <div class="step-num">2</div>
           <div class="step-content">
             <h4>Exploratory Analysis</h4>
-            <p>Analysed draw distribution across leagues (26.4% overall). Identified that draws were the minority class and that standard accuracy metrics would be misleading â confirmed the need for recall-focused evaluation.</p>
+            <p>Analysed draw distribution across leagues (26.4% overall). Identified that draws were the minority class and that standard accuracy metrics would be misleading — confirmed the need for recall-focused evaluation.</p>
           </div>
         </div>
         <div class="workflow-step">
@@ -665,7 +665,7 @@
           <div class="step-num">5</div>
           <div class="step-content">
             <h4>Threshold Optimisation</h4>
-            <p>Generated precision-recall curves across thresholds from 0.30 to 0.60. Selected threshold 0.45 as the optimal balance â catching 77% of draws at 37% precision, nearly 1.5x the random baseline.</p>
+            <p>Generated precision-recall curves across thresholds from 0.30 to 0.60. Selected threshold 0.45 as the optimal balance — catching 77% of draws at 37% precision, nearly 1.5x the random baseline.</p>
           </div>
         </div>
         <div class="workflow-step">
@@ -682,7 +682,7 @@
     <div class="case-section">
       <div class="case-section-label">Model Selection</div>
       <h2>Why Random Forest won</h2>
-      <p>Three algorithms were trained and evaluated specifically on their ability to detect draws â not just overall accuracy.</p>
+      <p>Three algorithms were trained and evaluated specifically on their ability to detect draws — not just overall accuracy.</p>
 
       <table class="model-table">
         <thead>
@@ -707,7 +707,7 @@
             <td>66%</td>
             <td>39%</td>
             <td>64%</td>
-            <td>â Yes</td>
+            <td>✅ Yes</td>
           </tr>
           <tr>
             <td>Gradient Boosting</td>
@@ -723,7 +723,7 @@
 
       <div class="insight-box" style="margin-top:1.2rem;">
         <h4>Why Gradient Boosting was rejected</h4>
-        <p>Gradient Boosting achieved 70% overall accuracy â the highest of the three. But it only caught 10% of actual draws. This is the exact failure mode this project was designed to avoid. A model that misses 9 out of 10 draws is useless for draw prediction regardless of its accuracy score.</p>
+        <p>Gradient Boosting achieved 70% overall accuracy — the highest of the three. But it only caught 10% of actual draws. This is the exact failure mode this project was designed to avoid. A model that misses 9 out of 10 draws is useless for draw prediction regardless of its accuracy score.</p>
       </div>
     </div>
 
@@ -899,14 +899,14 @@
     <div class="case-cta">
       <h3>View the full code on GitHub</h3>
       <p>The complete notebook, saved model, and data pipeline are available on GitHub.</p>
-      <a href="https://github.com/mutilekim/draw-hunter-3000" target="_blank" class="btn-primary">View on GitHub â</a>
+      <a href="https://github.com/mutilekim/draw-hunter-3000" target="_blank" class="btn-primary">View on GitHub ↗</a>
       <a href="index.html" class="btn-outline">Back to Portfolio</a>
     </div>
 
   </div>
 
   <footer>
-    <p>Â© 2026 Ruth Mutile Kimeu &nbsp;|&nbsp; <a href="https://briefdeskke.co.ke" target="_blank">BriefDesk Solutions</a></p>
+    <p>© 2026 Ruth Mutile Kimeu &nbsp;|&nbsp; <a href="https://briefdeskke.co.ke" target="_blank">BriefDesk Solutions</a></p>
   </footer>
 
 </body>
